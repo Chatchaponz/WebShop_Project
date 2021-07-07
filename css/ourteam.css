@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+  font-family: "Poppins", sans-serif;
+}
+
+
+@keyframes gradient 
+{
+ 0% 
+    {
+  background-position: 0% 50%;
+ }
+ 50% 
+    {
+  background-position: 100% 50%;
+ }
+ 100% 
+    {
+  background-position: 0% 50%;
+ }
+}
+
+.container {
+  margin: 20px 40px;
+  color: white;
+}
+
+
+.exitbuttonbg {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  
+
+}
+
+.exitbutton {
+  display: flex;
+  font-size: 35px;
+  background-color: #ee7752;
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  
+}
+
+.fa-sign-out-alt:before,
+.fa-sign-out-alt:after {
+  color: white;
+
+}
+
+.iconbg{
+  display: block;
+  
+  
+}
+
+.heading {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 60px;
+  margin-left: 4%;
+}
+
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+
+.profile {
+  flex-basis: 260px;
+}
+
+.profile .profile-img {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
+
+.user-name {
+  margin-top: 30px;
+  font-size: 35px;
+}
+
+.profile h5 {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+
+
+.profile h3 {
+  
+  color: #fff;
+}
+
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: justify;
+  color: #fff;
+}
+
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 80px 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .heading span {
+    font-size: 15px;
+  }
+
+  .profiles {
+    margin: 20px 0;
+  }
+
+  .profile p {
+    margin: 20px 10px 80px 10px;
+  }
+}

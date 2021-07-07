@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+
+:root{
+    --one-: #ff9102;
+    --two-: rgb(255, 216, 42);
+    --three-: #f7f7f7;
+    --four-: #ffc037;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: boder-box;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/*  staff info */
+body{
+    background: var(--three-);
+}
+
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1400px;
+    height: 800px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08)
+}
+
+.wrapper .left{
+    width: 35%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    
+    padding: 150px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff
+}
+
+@keyframes gradient 
+{
+ 0% 
+    {
+  background-position: 0% 50%;
+ }
+ 50% 
+    {
+  background-position: 100% 50%;
+ }
+ 100% 
+    {
+  background-position: 0% 50%;
+ }
+}
+
+.wrapper .left img{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.wrapper .left h3{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.wrapper .right{
+    width: 65%;
+    background: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 30px 25px;
+    
+}
+
+.wrapper .right .info {
+    margin-bottom: 25px;
+    
+}
+
+.wrapper .right .info h3{
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+   
+}
+
+.wrapper .right .data {
+    width: 70%;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.wrapper .right .data h4{
+    color: #353c4e;
+    margin-bottom: 5px;
+   
+}
+
+.wrapper .right .data p{
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #919aa3;
+    
+}
+
+.wrapper .choice {
+    margin-left: 74%;
+}
+
+.wrapper .choice ul{
+    display: flex;
+    size: 500px;
+}
+
+
+.wrapper .choice ul li{
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.wrapper .choice ul li a{
+    margin-top: 12%;
+    text-align: center;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+}

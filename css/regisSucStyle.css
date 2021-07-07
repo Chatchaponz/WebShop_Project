@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800;900&display=swap);
+
+:root 
+{
+    --default-color: rgb(255, 60, 0);
+    --default-color2: rgb(24, 148, 231);
+    --dark-color: #222;
+    --dark-color-alt: #3c4858;
+    --grey-color: #f9fafd;
+    --grey-color-alt: #8492a6;
+    --yellow: #ffcc00;
+    --white: #fff;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+.success
+{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(../images/background.jpeg);
+    background-size: cover;
+    
+}
+.success .content 
+{
+    max-width: 800px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+}
+.success .content h2
+{
+    
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 3px black;
+    padding: 20px;
+    padding-left: 20px;
+}
+.success .content p
+{
+    margin-top: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 3px black;
+    padding: 0 20px;
+}
+.container
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+.icon
+{
+    font-size: 200px;
+    color: #32cd32;
+    
+}
+
+.return_btn
+{
+    padding-top: 30px;
+    padding-bottom:40px;
+}
+
+.return_btn a
+{
+    text-decoration: none;
+    padding: 8px 20px;
+    color: var(--grey-color);
+    background-color: var(--default-color);
+    border-radius: 10rem;
+    border: 1px solid var(--default-color);
+    transition: all 300ms ease-in-out;
+}
+
+.return_btn:hover
+{
+    color: var(--default-color);
+    background-color: transparent;
+}
