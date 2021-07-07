@@ -1,5 +1,7 @@
 My shop
 
+Requirement: Xampp already installed in your computer
+
 How to make our website work:
 
 1. Run 'Xampp' and start 'Apache' and 'MySQL'
@@ -9,7 +11,11 @@ How to make our website work:
 3. CREATE database name 'myshop' using code in folder 'sql'
    NOTE: We already provide you the code that create database and also add table
 
-4. put 'myShop' (our web folder) in ./Xampp/htdocs/
+4. How to put 'myShop' (our web folder) in ./Xampp/htdocs/
+4.1 Create folder name 'myShop' put every code into this folder
+4.2 Don't forget to unzip htaccess
+4.2 Goto ./Xampp/htdocs/
+4.3 put 'myShop' (our web folder) in ./Xampp/htdocs/
 
 5. In web browser type: localhost/myShop
 
