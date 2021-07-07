@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <META name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <!--- Google Fonts (https://fonts.google.com/specimen/Dosis?query=Dosis) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!--- Custom Stylesheet -->
+    <!--- add ?<?php echo time(); ?> after styles.css make sever update css file everytime -->
+    <link rel="stylesheet" href="./css/styles.css?<?php echo time(); ?>">
+
+    <!---- Jquery ---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<title>Payment</title>
+<body>
+    <header class="header gen__header" id="header">
+
+        <!-- Navigation -->
+        <div class="navigation fix__nav">
+            <div class="container">
+                <div class="nav__center">
+                    <div class="nav__header">
+
+                        <!-- Shop Logo -->
+                        <div class="nav__logo">
+                            <h1>My<span>SHOP</span></h1>
+                        </div>
+
+                        <!-- icon from https://icomoon.io/app/#/select -->
+                        <!-- hamburger in case of mobile phone-->
+                        <div class="nav__hamburger">
+                            <span>
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-menu"></use>
+                                </svg>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <h1 class="nav__category"> My<span>SHOP</span> </h1>
+                            <div class="close__toggle">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cross"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="index.html" class="nav__link scroll-link">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="index.html#new__arrival" class="nav__link scroll-link">New Arrival</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="index.html#Shopnow" class="nav__link scroll-link">Shop</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="contact.html" class="nav__link scroll-link">Support</a>
+                            </li>
+                            <li class="nav__item login__btn">
+                                <a href="login.html" class="nav__link">Login</a>
+                            </li>
+                            <li class="nav__item register__btn">
+                                <a href="#" class="nav__link scroll-link">Register</a>
+                            </li>
+                        </ul>
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__icons">
+                            <a href="search.html" class="icon__item">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                            <a href="login.html" class="icon__item person__icon">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-user"></use>
+                                </svg>
+                            </a>
+                            <a href="cart.html" class="icon__item cart__info">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cart"></use>
+                                </svg>
+                                <!--number item in the cart-->
+                                <span>0</span>
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="products__container payment">
+        <div class="product__header">
+            <h5 class="product__title">PRODUCT</h5>
+            <h5 class="price">PRICE</h5>
+            <h5 class="quantity">QUANTITY</h5>
+            <h5 class="total">TOTAL</h5>
+        </div>
+
+        <div class="cart__products__payment">
+        </div>
+
+    </div>
+
+    <div class="shipment">
+        <h1>SHIPMENT</h1>
+        <p>Please select shipment type</p>
+        <h4>(If not, it will automatically be 'Registered')</h4>
+        <button id="shipmentType" class="shipmentType registered" value="registered" >Registered</button>
+        <button id="shipmentType" class="shipmentType ems" value="ems" >EMS</button>
+        
+        <div class="delivery__address" id="delivery__address">
+
+        </div>
+
+        <div class = "cartTotal__container">
+            <h4 class="cartTotal__title">
+                Shipping cost
+            </h4>
+            <h4 class="shipcost">
+                0 ฿
+            </h4>
+        </div>
+        <div class = "cartTotal__container">
+            <h4 class="cartTotal__title">
+                Total
+            </h4>
+            <h4 class="totalShipcost">
+                0 ฿
+            </h4>
+        </div>
+    </div>
+
+    <div class="payment__warapper">
+        <div class="payment__container">
+            <div class="payment__title">Checkout From</div>
+            <form >
+            <div class="input__from">
+
+
+                <div class="section-1">
+                        <div class="items">
+                            <label class="label">card number</label>
+                            <input type="text" class="input box_input" data-mask="0000 0000 0000 0000" placeholder="1234 1234 1234 1234" required>
+                        </div>
+                </div>
+
+                <div class="section-2">
+                    <div class="items">
+                        <label class="label">card holder</label>
+                        <input type="text" class="input box_input" placeholder="Card Holder Name" required>
+                    </div>
+                </div>
+
+                <div class="section-3">
+                    <div class="items">
+                        <label class="label">Expire date</label>
+                        <input type="text" class="input box_input" data-mask="00 / 00" placeholder="MM / YY" required>
+                    </div>
+
+                    <div class="items">
+                        <div class="cvc">
+                            <label class="label">CVC code</label>
+                            <div class="tooltip">?
+                                <div class="cvc-img"><img src="images/cvv.png" alt=""></div>
+                            </div>
+                        </div>
+                        <input type="text" class="input box_input" data-mask="000" placeholder="000" required>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="PROCEED" class="payment__btn">
+            </form>
+
+        </div>
+    </div>
+
+    <!---- Java Script ---->
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script> <!-- ion icon -->
+    <script src="./js/general.js?<?php echo time(); ?>"></script>
+    <script src="./js/cartIndex.js?<?php echo time(); ?>"></script>
+    <script src="./js/payment.js?<?php echo time(); ?>"></script>
+
+    <!---- Jquery ---->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    <script src="./js/adjustLogin.js?<?php echo time(); ?>"></script>
+</body>
+
+</html>

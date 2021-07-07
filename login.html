@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--- Google Fonts (https://fonts.google.com/specimen/Dosis?query=Dosis) -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/login_styles.css?<?php echo time(); ?>">
+
+        <!---- Jquery ---->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <title>Login</title>
+
+    </head>
+    <body>
+        <div class="center">
+            
+            <h1>Login</h1>
+            
+            <form method="POST" id="login__form">
+                <div class="txt_field">
+                    <input type="text" id="username" name="username_form" autocomplete="username" required>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="password" id="password" name="password_form"autocomplete="new-password" required >
+                    <span></span>
+                    <label>Password</label>
+                </div>
+
+                <div class="warning">
+                </div>
+                
+                <!-- <div class="pass">Forgot Password?</div> -->
+                <div class="return">
+                    <a href="index.html">Return to Home</a>
+                </div>
+
+                <input type="submit" value="Login" class="login" id="login">
+                <div class="signup_link">
+                Not a member? <a href="register.html">Signup</a>
+                </div>
+            
+            </form>
+        </div>
+
+        <script src="./js/login.js?<?php echo time(); ?>"></script>
+  </body>
+</html>

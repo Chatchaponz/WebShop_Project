@@ -1,0 +1,185 @@
+<?php 
+  $connect = mysqli_connect('localhost', 'root', '', 'myshop');
+  if(mysqli_connect_errno())
+  {
+      mysqli_close($connect);
+      exit();
+  }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <META name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <!--- Google Fonts (https://fonts.google.com/specimen/Dosis?query=Dosis) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!--- Glidejs (https://cdnjs.com/libraries/Glide.js)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
+
+    <!--- Custom Stylesheet -->
+    <!--- add ?<?php echo time(); ?> after styles.css make sever update css file everytime -->
+    <link rel="stylesheet" href="./css/styles.css?<?php echo time(); ?>">
+
+    <!---- Jquery ---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Home</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="container">
+                <div class="nav__center">
+                    <div class="nav__header">
+
+                        <!-- Shop Logo -->
+                        <div class="nav__logo">
+                            <h1>My<span>SHOP</span></h1>
+                        </div>
+
+                        <!-- icon from https://icomoon.io/app/#/select -->
+                        <!-- hamburger in case of mobile phone-->
+                        <div class="nav__hamburger">
+                            <span>
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-menu"></use>
+                                </svg>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <h1 class="nav__category"> My<span>SHOP</span> </h1>
+                            <div class="close__toggle">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cross"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#header" class="nav__link scroll-link">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#new__arrival" class="nav__link scroll-link">New Arrival</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#Shopnow" class="nav__link scroll-link">Shop</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="contact.html" class="nav__link">Support</a>
+                            </li>
+                            <li class="nav__item login__btn">
+                                <a href="login.html" class="nav__link">Login</a>
+                            </li>
+                            <li class="nav__item register__btn">
+                                <a href="register.html" class="nav__link">Register</a>
+                            </li>
+                        </ul>
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__icons">
+                            <a href="search.html" class="icon__item">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                            <a href="login.html" class="icon__item person__icon">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-user"></use>
+                                </svg>
+                            </a>
+                            <a href="cart.html" class="icon__item cart__info">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cart"></use>
+                                </svg>
+                                <!--number item in the cart-->
+                                <span>0</span>
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--- Hero (Promotion) --->
+        <div class="hero">
+            <div class="hero__content container">
+
+                <h1>
+                    <span>Make your life <span class="color">easier</span>, shopping with</span>
+                    <span>My<span class="color">SHOP</span></span>
+                </h1>
+
+                <a href="#Shopnow" class="btn btn-hero">shop now</a>
+            </div>
+
+            <a href="#new__arrival" class="goto__next scroll-link">
+                <span>
+                    <svg>
+                        <use xlink:href="./images/icons.svg#icon-circle-down"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+    </header>
+
+    <!---- main ---->
+    <main>
+
+        <!---- New Arrival ---->
+        <section class="section new__arrival" id="new__arrival">
+            <div class="arrivals container">
+                <div class="title">
+                    <h1 class="primary__title">New Arrival</h1>
+                </div>
+                <div class="arrival__center">
+
+                    <?php include("./php/NewArrival.php") ?>
+
+                    <!--- End product --->
+                </div>
+            </div>
+        </section>
+
+        <!---- Cart Slide ---->
+        
+        <?php include("./php/CartSlide.php") ?>
+
+        <div class="title" id = "Shopnow">
+            <h1 class="primary__title">SHOP NOW</h1>
+        </div>
+
+        <div class="arrival__center">
+            <?php include("./php/shopNow.php") ?>
+        </div>
+
+    </main>
+
+    <!---- Glidejs ---->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+
+    <!---- Java Script ---->
+    <!--- add ?<?php echo time(); ?> make sever update js file everytime -->
+    <script src="./js/index.js?<?php echo time(); ?>"></script>
+    <script src="./js/slider.js?<?php echo time(); ?>"></script>
+    <script src="./js/cartIndex.js?<?php echo time(); ?>"></script>
+    <script src="./js/adjustLogin.js?<?php echo time(); ?>"></script>
+    <script src="./js/to_singleProduct.js?<?php echo time(); ?>"></script>
+</body>
+</html>

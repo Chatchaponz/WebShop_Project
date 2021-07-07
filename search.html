@@ -1,0 +1,142 @@
+<?php 
+  $connect = mysqli_connect('localhost', 'root', '', 'myshop');
+  if(mysqli_connect_errno())
+  {
+        mysqli_close($connect);
+        exit();
+  }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <META name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <!--- Google Fonts (https://fonts.google.com/specimen/Dosis?query=Dosis) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!--- Custom Stylesheet -->
+    <!--- add ?<?php echo time(); ?> after styles.css make sever update css file everytime -->
+    <link rel="stylesheet" href="./css/styles.css?<?php echo time(); ?>">
+
+    <!---- Jquery ---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Search</title>
+</head>
+
+<body>
+    <header class="header gen__header" id="header">
+
+        <!-- Navigation -->
+        <div class="navigation fix__nav">
+            <div class="container">
+                <div class="nav__center">
+                    <div class="nav__header">
+
+                        <!-- Shop Logo -->
+                        <div class="nav__logo">
+                            <h1>My<span>SHOP</span></h1>
+                        </div>
+
+                        <!-- icon from https://icomoon.io/app/#/select -->
+                        <!-- hamburger in case of mobile phone-->
+                        <div class="nav__hamburger">
+                            <span>
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-menu"></use>
+                                </svg>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <h1 class="nav__category"> My<span>SHOP</span> </h1>
+                            <div class="close__toggle">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cross"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="index.html" class="nav__link scroll-link">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="index.html#new__arrival" class="nav__link scroll-link">New Arrival</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="index.html#Shopnow" class="nav__link scroll-link">Shop</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="contact.html" class="nav__link scroll-link">Support</a>
+                            </li>
+                            <li class="nav__item login__btn">
+                                <a href="login.html" class="nav__link">Login</a>
+                            </li>
+                            <li class="nav__item register__btn">
+                                <a href="#" class="nav__link scroll-link">Register</a>
+                            </li>
+                        </ul>
+                        <!-- Put link in href= "#YourLink"-->
+                        <ul class="nav__icons">
+                            <a href="search.html" class="icon__item">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                            <a href="login.html" class="icon__item person__icon">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-user"></use>
+                                </svg>
+                            </a>
+                            <a href="cart.html" class="icon__item cart__info">
+                                <svg>
+                                    <use xlink:href="./images/icons.svg#icon-cart"></use>
+                                </svg>
+                                <!--number item in the cart-->
+                                <span>0</span>
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="title">
+        <form action="" method="POST">
+            <label style="font-weight: 600; padding-right: 5px;" for="search">Search</label>
+            <input type="search" id="search" name="search"
+            pattern="[^'\x22]+" title="Invalid input">
+            <input type="submit" class = "search_btn">
+        </form>
+        </div>
+
+        <div class="title title2" >
+        </div>
+    
+    <div class="arrival__center" id="search__product">
+        <?php include("./php/shopNow.php") ?>
+    </div>
+    </main>
+
+     <!---- Java Script ---->
+     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script> <!-- ion icon -->
+     <script src="./js/general.js?<?php echo time(); ?>"></script>
+     <script src="./js/search.js?<?php echo time(); ?>"></script>
+     <script src="./js/adjustLogin.js?<?php echo time(); ?>"></script>
+     <script src="./js/singleProduct.js?<?php echo time(); ?>"></script>
+
+    <body>
+
+</html>

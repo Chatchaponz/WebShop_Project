@@ -1,0 +1,287 @@
+<?php
+	$connect = new mysqli('localhost', 'root', '', 'myshop');
+
+	 if ($connect->connect_error) {
+		   die("Something wrong.: " . $connect->connect_error);
+	  }
+   
+	 $sql = "SELECT a.Staff_ID, FirstName, MiddleName, LastName, count(b.Staff_ID)
+	 FROM Staff a INNER JOIN support b ON a.Staff_ID = b.Staff_ID 
+	 WHERE b.Problem_Status = 1
+	 GROUP BY b.Staff_ID
+	 ORDER BY  count(b.Staff_ID) DESC 
+	 LIMIT 5;";
+	 $result = $connect->query($sql);
+	
+	 $sql2 = "SELECT FirstName, MiddleName, LastName, count(b.Staff_ID) AS CaseDone, MONTH(Problem_Fixed_Datetime) AS fixMonth
+	 FROM Staff a INNER JOIN support b ON a.Staff_ID = b.Staff_ID 
+	 WHERE b.Problem_Status = 1 AND MONTH(Problem_Fixed_Datetime) = MONTH(CURRENT_DATE)
+	 GROUP BY b.Staff_ID, fixMonth
+	 ORDER BY  count(b.Staff_ID) DESC
+	 LIMIT 5;";
+	 $resultMonth = $connect->query($sql2);
+
+	$sql3 = "SELECT FirstName, MiddleName, LastName, count(b.Staff_ID) AS CaseDone, YEAR(Problem_Fixed_Datetime) AS fixYear
+	FROM Staff a INNER JOIN support b ON a.Staff_ID = b.Staff_ID 
+	WHERE b.Problem_Status = 1 AND YEAR(Problem_Fixed_Datetime) = YEAR(CURRENT_DATE)
+	GROUP BY b.Staff_ID, fixYear
+	ORDER BY  count(b.Staff_ID) DESC
+	LIMIT 5;";
+	$resultYear = $connect->query($sql3);
+
+	//$objQuery = mysqli_query($conn,$sql) or die("Error Query [" . $sql  ."]");
+	?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Leader Board</title>
+	<link rel="stylesheet" href="./css/leaderboard.css?<?php echo time(); ?>">
+  <script src="https://kit.fontawesome.com/40164ef659.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+ 
+<div class="wrapper">
+	<div class="exitblock">
+		<div class="exitbg">
+			<a href="sidebar.html"><i class="fas fa-sign-out-alt"></i></a>
+		</div>
+	</div>
+
+<div class="Head"><h1>Leader Board</h1></div>
+	<div class="lboard_section">
+		<div class="lboard_tabs">
+			<div class="tabs">
+				<ul>
+					<li data-li="today">Overall</li>
+					<li class="active" data-li="month">Month</li>
+					<li data-li="year">Year</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lboard_wrap">
+			<div class="lboard_item today" style="display: none;">
+
+		
+			<?php
+			$i = 1;
+			while(($row = $result->fetch_assoc()))
+			{echo'
+				<div class="lboard_mem">';
+					
+					switch($i)
+					{
+						case 1:
+							{ echo'
+								<div class="icon">
+									<div class="king"><i class="fas fa-chess-king"></i></div>
+								</div>';
+								break;
+							}
+							
+						case 2:
+							{
+								echo'
+								<div class="icon">
+									<div class="queen"><i class="fas fa-chess-queen"></i></div>
+								</div>';
+								break;	
+							}
+							
+						case 3:
+							{
+								echo'
+								<div class="icon">
+									<div class ="bishop"><i class="fas fa-chess-bishop"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 4:
+							{
+								echo'
+								<div class="icon">
+									<div class="knight"><i class="fas fa-chess-knight"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 5:
+							{
+								echo'
+								<div class="icon">
+									<div class="rook"><i class="fas fa-chess-rook"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						default:
+						echo ' ';
+					}
+					echo"
+					<div class='name_bar'>
+						<p><span>{$i}. </span> {$row['FirstName']} {$row['MiddleName']} {$row['LastName']}</p>
+					</div>
+					<div class='points'>
+						<p> {$row['count(b.Staff_ID)']} cases</p>
+					</div>
+				</div>";
+			 $i++;
+			}?>
+			</div>
+
+
+
+
+			<div class="lboard_item month" style="display: block;">
+			<?php
+			$j = 1;
+			while(($rowMonth = $resultMonth->fetch_assoc()))
+			{echo'
+				<div class="lboard_mem">';
+					
+					switch($j)
+					{
+						case 1:
+							{ echo'
+								<div class="icon">
+									<div class="king"><i class="fas fa-chess-king"></i></div>
+								</div>';
+								break;
+							}
+							
+						case 2:
+							{
+								echo'
+								<div class="icon">
+									<div class="queen"><i class="fas fa-chess-queen"></i></div>
+								</div>';
+								break;	
+							}
+							
+						case 3:
+							{
+								echo'
+								<div class="icon">
+									<div class ="bishop"><i class="fas fa-chess-bishop"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 4:
+							{
+								echo'
+								<div class="icon">
+									<div class="knight"><i class="fas fa-chess-knight"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 5:
+							{
+								echo'
+								<div class="icon">
+									<div class="rook"><i class="fas fa-chess-rook"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						default:
+						echo ' ';
+					}
+					echo"
+					<div class='name_bar'>
+						<p><span>{$j}. </span> {$rowMonth['FirstName']} {$rowMonth['MiddleName']} {$rowMonth['LastName']}</p>
+					</div>
+					<div class='points'>
+						<p> {$rowMonth['CaseDone']} cases</p>
+					</div>
+				</div>";
+			 $j++;
+			}?>
+			</div>
+
+
+
+
+
+			<div class="lboard_item year" style="display: none;">
+			<?php
+			$k = 1;
+			while(($rowYear = $resultYear->fetch_assoc()))
+			{echo'
+				<div class="lboard_mem">';
+					
+					switch($k)
+					{
+						case 1:
+							{ echo'
+								<div class="icon">
+									<div class="king"><i class="fas fa-chess-king"></i></div>
+								</div>';
+								break;
+							}
+							
+						case 2:
+							{
+								echo'
+								<div class="icon">
+									<div class="queen"><i class="fas fa-chess-queen"></i></div>
+								</div>';
+								break;	
+							}
+							
+						case 3:
+							{
+								echo'
+								<div class="icon">
+									<div class ="bishop"><i class="fas fa-chess-bishop"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 4:
+							{
+								echo'
+								<div class="icon">
+									<div class="knight"><i class="fas fa-chess-knight"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						case 5:
+							{
+								echo'
+								<div class="icon">
+									<div class="rook"><i class="fas fa-chess-rook"></i></div>
+								</div>'	;
+								break;
+							}
+							
+						default:
+						echo ' ';
+					}
+					echo"
+					<div class='name_bar'>
+						<p><span>{$k}. </span> {$rowYear['FirstName']} {$rowYear['MiddleName']} {$rowYear['LastName']}</p>
+					</div>
+					<div class='points'>
+						<p> {$rowYear['CaseDone']} cases</p>
+					</div>
+				</div>";
+			 $k++;
+			}?>
+			
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+	
+
+<script src="./js/leaderboard.js?<?php echo time(); ?>"></script>
+</body>
+</html>

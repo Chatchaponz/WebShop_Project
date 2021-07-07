@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Support Workspace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./css/sidebar.css?<?php echo time(); ?>">
+    
+    <!---- Jquery ---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="./js/staffLogin.js?<?php echo time(); ?>"></script>
+
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<!-- <div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
+        </div> -->
+
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg2.jpeg);">
+	  			<div class="user-logo"> <!--ProfileImage-->
+	  			</div>
+	  		</div>
+        
+        <ul class="list-unstyled components mb-5">
+          <li> <!-- Context 1  -->
+            <a  href="#"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li> <!-- Context 2  -->
+            <a href="singlestaff.html"><span class="fa fa-user-circle-o mr-3"></span> Profile</a>
+          </li>
+          <li> <!-- Context 3  -->
+            <a href="leaderboard.html"><span class="fa fa-trophy mr-3"></span> Leader Board</a>
+          </li>
+          <li> <!-- Context 4  -->
+            <a href="ourteam.html"><span class="fa fa-home mr-3"></span> Our team</a>
+          </li>
+          <li class="staff_logout"> <!-- Logout  -->
+            <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Support Workspace</h2>
+        <!-- <?php while($row = $result->fetch_assoc()): ?>
+
+            <div class="box_container">
+              <div id = "poor_box" class="box">
+                  <h3 id = "shit_box" style="color:rgb(255, 255, 255);"><u><?php echo $row['Problem_Topic']; ?></u></h3> 
+                  <div id="kai" class="hide">
+                        
+                        <p class="username" style="color:rgb(255, 255, 255)">Username: <?php echo $row['Username']; ?> 
+                         </p>     
+                        <p style="color:rgb(255, 255, 255);"><?php echo $row['Problem_Description']; ?>
+                        </p>
+                        <form action="process.php" method="post">
+                          <div class="input-container">
+                            <textarea name="paragraph_text"  cols="40" rows="2" required></textarea>
+                          </div>
+                          <input type="text" name="id" value= <?php echo $row['Case_ID']?> hidden >
+                          <div class="submitContainer">
+                            <input type="submit" class="btn_submit" value="submit" name= "submit">
+                          </div>
+                        </form>
+                  </div>
+              </div>
+                    
+            </div>
+        
+        <?php endwhile ?> -->
+      </div> 
+
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
