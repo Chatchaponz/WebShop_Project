@@ -1,5 +1,9 @@
 My shop
 
+This project is for pratice how to design database using with real website
+with basic html php javaScript and css
+( Front end of this web application inspired from many youTube tutorial )
+
 Requirement: Xampp already installed in your computer
 
 How to make our website work:
